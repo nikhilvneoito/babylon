@@ -132,7 +132,6 @@ class FreeCameraKeyboardRotateInput implements BABYLON.ICameraInput<BABYLON.ArcR
   }
 }
 
-
 export default function Home() {
 
   var engine: BABYLON.Engine;
@@ -191,7 +190,7 @@ export default function Home() {
   }
 
   const importNeoModel = async (scene: BABYLON.Scene) => {
-    const neo = await BABYLON.SceneLoader.ImportMesh('', '/neo/18b403df-fef2-4b6f-96bc-ffb440bb0b70.obj', '', scene,
+    const neo = await BABYLON.SceneLoader.ImportMesh('', '/neo/f60e2542-f45b-4baa-9abb-bfe0bd1898d8.obj', '', scene,
       (mesh: BABYLON.AbstractMesh[]) => {
         // console.log(mesh)
         mesh.forEach((subMesh: BABYLON.AbstractMesh) => {
@@ -204,11 +203,11 @@ export default function Home() {
   }
 
   const createScene = (scene: BABYLON.Scene) => {
-    const camera = new BABYLON.UniversalCamera("MyCamera", new BABYLON.Vector3(100, 70, 50), scene);
+    const camera = new BABYLON.UniversalCamera("MyCamera", new BABYLON.Vector3(50, 10, 0), scene);
     camera.minZ = 0.1;
     camera.attachControl(canvas, true);
     camera.speed = 0.1;
-    camera.rotation = new BABYLON.Vector3(Math.PI / 20, -Math.PI / 2, 0);
+    camera.rotation = new BABYLON.Vector3(Math.PI / 40, -Math.PI / 2, 0);
     camera.checkCollisions = true;
     camera.inputs.removeByType("FreeCameraKeyboardMoveInput");
     camera.inputs.removeByType("ArcRotateCameraKeyboardMoveInput");
@@ -218,11 +217,11 @@ export default function Home() {
       scene
     );
     light.intensity = 0.7;
-    const ground = BABYLON.MeshBuilder.CreateGround('ground',
-      { width: 100, height: 100 },
-      scene
-    );
-    ground.checkCollisions = true;
+    // const ground = BABYLON.MeshBuilder.CreateGround('ground',
+    //   { width: 100, height: 100 },
+    //   scene
+    // );
+    // ground.checkCollisions = true;
     // importHouseModel(scene, 0, 20, 0);
     // importSecondHouseModel(scene);
     // importThirdHouseModel(scene);
